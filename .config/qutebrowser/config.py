@@ -161,7 +161,7 @@ c.window.title_format = '{perc}qute [dtml]{title_sep}{current_title}'
 
 #c.editor.command = ["emacs", "+{line}:{column}" ,"{file}"]
 # Bindings for normal mode
-config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/source/onepass_cli/qute_1pass.py fill_credentials --auto-submit')
-config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/source/onepass_cli/qute_1pass.py fill_credentials --auto-submit',mode="insert")
-config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/source/onepass_cli/qute_1pass.py fill_password')
-config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/source/onepass_cli/qute_1pass.py fill_password', mode='insert')
+config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_credentials --auto-submit')
+config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_credentials --auto-submit',mode="insert")
+config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_password')
+config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_password', mode='insert')
