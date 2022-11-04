@@ -21,10 +21,10 @@ configuration {
 /*	drun-show-actions: false;*/
 /*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
 /*	drun-url-launcher: "xdg-open";*/
-/*	disable-history: false;*/
+	disable-history: true;
 /*	ignored-prefixes: "";*/
-/*	sort: false;*/
-/*	sorting-method: "normal";*/
+	sort: false;
+	sorting-method: "normal";
 	case-sensitive: false;
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
@@ -44,7 +44,7 @@ configuration {
 /*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	theme: ;*/
-/*	max-history-size: 25;*/
+/*	max-history-size: 25; */
 /*	combi-hide-mode-prefix: false;*/
 /*	matching-negate-char: '-' /* unsupported */;*/
 /*	cache-dir: ;*/

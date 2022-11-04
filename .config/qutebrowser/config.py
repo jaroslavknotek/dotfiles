@@ -159,9 +159,26 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Type: FormatString
 c.window.title_format = '{perc}qute [dtml]{title_sep}{current_title}'
 
-#c.editor.command = ["emacs", "+{line}:{column}" ,"{file}"]
+c.editor.command = ["vim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
+
+c.downloads.location.directory = '/home/jry/downloads'
 # Bindings for normal mode
 config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_credentials --auto-submit')
 config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_credentials --auto-submit',mode="insert")
 config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_password')
 config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_password', mode='insert')
+
+config.bind('<j>', 'scroll-px 0 200')
+config.bind('<k>', 'scroll-px 0 -200')
+
+c.url.searchengines = {
+    'DEFAULT':  'https://google.com/search?hl=en&q={}',
+    '!yt':      'https://www.youtube.com/results?search_query={}',
+    '!gh':      'https://github.com/search?o=desc&q={}&s=stars',
+    '!gi':      'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
+    '!gm':      'https://www.google.com/maps/search/{}',
+    '!r':       'https://www.reddit.com/search?q={}',
+    '!t':       'https://www.thesaurus.com/browse/{}',
+    '!dd':      'https://thefreedictionary.com/{}',
+    '!so':      'https://stackoverflow.com/search?q={}',
+}

@@ -29,4 +29,5 @@
     "cSpell.language": "en,cz",
     "dendron.logLevel": "error",
     "dendron.trace.server": "off",
+    "update.mode": "manual",
 }
