@@ -22,10 +22,6 @@ curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
 sudo apt update && sudo apt install 1password-cli
 op --version
 
-echo "Install python wrapper"
-
-git clone https://github.com/jaroslavknotek/onepass_cli.git ~/apps/onepass_cli
-
 echo "Setup account - this will require interaction"
 
 op account add --address my.1password.com --email knotekjaroslav@email.cz

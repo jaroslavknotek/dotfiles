@@ -4,17 +4,16 @@ set -e
 
 echo "Setup AG"
 
-apt-get install silversearcher-ag
+sudo apt-get install --yes silversearcher-ag
 
 echo "setup bat"
-sudo apt install bat
+sudo apt install --yes bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
 echo "Setup fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings  --completion  --update-rc
-
 
 echo "Make changes is .bashrc"
 
