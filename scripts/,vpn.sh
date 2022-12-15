@@ -10,30 +10,21 @@ COMMAND=$1
 VPN_NAME=$2
 
 
-datamole_connect ()
-{
-    sudo openvpn --config ~/.openvpn/jknotek-datamole-bundle.ovpn 
-}
-
-datamole_disconnect ()
-{
-    echo "This is not implemented. The session is cancelled via ctrl-c"
-}
 
 ujv_connect()
 {
-    openvpn3 session-start --config ~/.openvpn/profile-1528.ovpn
+    openvpn3 session-start --config ~/.openvpn/cvr-profile.ovpn
 }
 
 ujv_disconnect()
 {
-    openvpn3 session-manage --config ~/.openvpn/profile-1528.ovpn  --disconnect
+    openvpn3 session-manage --config ~/.openvpn/cvr-profile.ovpn  --disconnect
 }
 
 utia_connect()
 {
     sudo true
-    ,getpass.sh --stdout |sudo openconnect --protocol=pulse --user=knotek udun.site.cas.cz --authgroup=ZOI --passwd-on-stdin
+    ,getpass.sh --stdout |sudo openconnect --protocol=pulse --user=knotek udun.site.cas.cz --authgroup=ZOI --passwd-on-stdin --servercert pin-sha256:Ia0ipnsx0DVM3hnAvhwutIdCqYUVUwKZDXDLqspHD2k=
 }
 
 utia_disconnect()
@@ -43,9 +34,7 @@ utia_disconnect()
 
 case $COMMAND in 
     "connect" ) 
-        if [ $VPN_NAME == 'datamole' ]; then
-            datamole_connect
-        elif [ $VPN_NAME == 'ujv' ]; then
+        if [ $VPN_NAME == 'ujv' ]; then
             ujv_connect
         elif  [ $VPN_NAME == 'utia' ]; then
             utia_connect
@@ -54,9 +43,7 @@ case $COMMAND in
         fi
         ;;
     "disconnect" )
-        if [ $VPN_NAME == 'datamole' ]; then
-            datamole_disconnect
-        elif [ $VPN_NAME == 'ujv' ]; then
+        if [ $VPN_NAME == 'ujv' ]; then
             ujv_disconnect
         elif  [ $VPN_NAME == 'utia' ]; then
             utia_disconnect

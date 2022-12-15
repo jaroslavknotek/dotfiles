@@ -10,7 +10,7 @@ echo "  using jq $(jq --version)"
 read -s -p "get 1pass password" password
 echo ""
 
-SESSION=$(echo -n $password | op signin --raw --account my.1password.com)
+SESSION=$1
 
 echo "1Pass session received"
 

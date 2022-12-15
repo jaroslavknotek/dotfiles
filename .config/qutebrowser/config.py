@@ -157,7 +157,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
 # Type: FormatString
-c.window.title_format = '{perc}qute [dtml]{title_sep}{current_title}'
+c.window.title_format = '{perc}qute {title_sep}{current_title}'
 
 c.editor.command = ["vim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 
