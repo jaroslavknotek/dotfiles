@@ -34,3 +34,12 @@ ln -s ~/apps/dotfiles/.config/qutebrowser/config.py ~/.config/qutebrowser/config
 echo "add pdf js"
 /usr/local/src/qutebrowser/.venv-qt6/bin/python scripts/dev/update_3rdparty.py
 
+echo "add qutebrowser profile"
+git clone https://github.com/jtyers/qutebrowser-profile.git /tmp/qutebrowser-profile
+sudo mv /tmp/qutebrowser-profile/ /usr/local/src/qutebrowser-profile
+
+echo '#!/bin/bash' > /tmp/qutebrowser-profile-bin
+echo '/usr/local/src/qutebrowser-profile/qutebrowser-profile' >> /tmp/qutebrowser-profile-bin
+chmod +x /tmp/qutebrowser-profile-bin
+sudo mv /tmp/qutebrowser-profile-bin /usr/local/bin/qutebrowser-profile
+

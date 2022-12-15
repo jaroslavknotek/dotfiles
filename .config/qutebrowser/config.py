@@ -182,3 +182,5 @@ c.url.searchengines = {
     '!dd':      'https://thefreedictionary.com/{}',
     '!so':      'https://stackoverflow.com/search?q={}',
 }
+
+c.auto_save.session = True
