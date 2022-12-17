@@ -44,6 +44,10 @@ echo "setting up connection to itself"
 
 rm -rf ~/apps/dotfiles
 git clone git@github.com:jaroslavknotek/dotfiles.git --config core.sshCommand="ssh -i ~/.ssh/id_rsa" ~/apps/dotfiles
+cd ~/apps/dotfiles
+git config user.email knotekjaroslav@email.cz
+git config user.name "Jaroslav Knotek"
+
 
 echo 'Setup keyboard'
 ##  this sourcee: https://www.abclinuxu.cz/blog/origami/2006/12/21/162644
@@ -113,8 +117,6 @@ sudo apt install --yes jq
 echo "Install flameshot"
 sudo apt install --yes flameshot
 
-echo "Add to bashrc:"
-echo "source ~/apps/dotfiles/.mybashrc"
-
-echo "add to .profile"
-echo "source ~/apps/dotfiles/.myprofile"
+echo "Run the following"
+echo 'echo "source ~/apps/dotfiles/.mybashrc" >> ~/.bashrc'
+echo 'echo "source ~/apps/dotfiles/.myprofile" >> ~/.profile'
