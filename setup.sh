@@ -42,7 +42,7 @@ sed -i "s/history = ctrl+grave/#     history = ctrl+grave/" ~/.config/dunst/duns
 
 echo "setting up connection to itself"
 
-rm -rf ~/apps/dotiles
+rm -rf ~/apps/dotfiles
 git clone git@github.com:jaroslavknotek/dotfiles.git --config core.sshCommand="ssh -i ~/.ssh/id_rsa" ~/apps/dotfiles
 
 echo 'Setup keyboard'
