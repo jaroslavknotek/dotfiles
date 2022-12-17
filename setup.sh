@@ -54,6 +54,7 @@ echo 'Setup keyboard'
 
 sudo cp ~/apps/dotfiles/src/vok /usr/share/X11/xkb/symbols
 sudo sed -i "s/! layout/! layout\n  vok             vogo's CZECH programming keyboard/" /usr/share/X11/xkb/rules/xorg.lst
+sudo cp -f ~/apps/dotfiles/keyboard /etc/default/keyboard
 
 echo "Installing cvr vpn"
 
