@@ -120,3 +120,14 @@ sudo apt install --yes flameshot
 echo "Run the following"
 echo 'echo "source ~/apps/dotfiles/.mybashrc" >> ~/.bashrc'
 echo 'echo "source ~/apps/dotfiles/.myprofile" >> ~/.profile'
+
+
+mkdir downloads
+mv Downloads/* downloads
+rmdir Downloads
+rmdir Desktop/
+rmdir Documents/
+rmdir Music/
+rmdir Public/
+rmdir Templates/
+rmdir Videos/

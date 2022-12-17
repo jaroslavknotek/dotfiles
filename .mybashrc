@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-echo 'eval "$(zoxide init bash)"' >> .bashrc
-echo "export EDITOR=vim" >> .bashrc
+eval "$(zoxide init bash)"
+export EDITOR=vim
 
 
 # enable fzf auto completion
@@ -10,6 +10,5 @@ echo "export EDITOR=vim" >> .bashrc
 # add previews to search invoked with ctrl t
 export FZF_CTRL_T_OPTS="--height 50% --preview 'bat --color=always --style=numbers --line-range=:500 {}' --bind 'ctrl-y:execute-silent(echo {} | xsel -ib)'"
 
-
 export PATH="$PATH:~/apps/dotfiles/scripts"
-
+setxkbmap -layout vok -variant basic
