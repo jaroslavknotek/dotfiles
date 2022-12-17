@@ -17,7 +17,7 @@ echo "Setup fzf"
 
 rm -rf ~/.fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --key-bindings  --completion  --update-rc
+~/.fzf/install --key-bindings  --completion 
 
 echo "Make changes is .bashrc"
 
