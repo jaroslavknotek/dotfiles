@@ -26,6 +26,10 @@ elif [ "$#" -eq 1 ] && [ "$1" == "showme" ] ; then
 	rnd=$((1 + $RANDOM % $len))
 	rndfile=${arr[$rnd]}
 	vim $rndfile
+elif [ "$#" -eq 1 ] && [ "$1" == "init" ] ; then
+	mkdir -p ~/documents
+	git clone git@github.com:jaroslavknotek/notes_vault.git --config core.sshCommand="ssh -i ~/.ssh/id_rsa"     ~/documents/notes_vault
+
 else
 	echo "Unexpected parameters"
 	print_help

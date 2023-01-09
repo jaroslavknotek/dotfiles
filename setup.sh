@@ -14,14 +14,14 @@ git version
 echo "Install build-essentials"
 sudo apt install --yes build-essential
 
-echo "setup 1 pass"
-./setuppass.sh
+echo "install keepassxc"
+sudo snap install keepassxc
+sudo apt-get install --yes csvtool
 
-read -p "1pass password: " -s password
-SESSION=$(echo -n $password | op signin --raw --account my.1password.com)
+read -p "keepass password: " -s password
 
 echo "setup ssh"
-./setupssh.sh $SESSION
+./setup_ssh.sh $password
 
 echo "setup fzf + deps"
 ./setupfzf.sh
@@ -54,7 +54,6 @@ echo 'Setup keyboard'
 
 sudo cp ~/apps/dotfiles/src/vok /usr/share/X11/xkb/symbols
 sudo sed -i "s/! layout/! layout\n  vok             vogo's CZECH programming keyboard/" /usr/share/X11/xkb/rules/xorg.lst
-sudo cp -f ~/apps/dotfiles/keyboard /etc/default/keyboard
 
 echo "Installing cvr vpn"
 
@@ -132,3 +131,8 @@ rmdir Music/
 rmdir Public/
 rmdir Templates/
 rmdir Videos/
+
+
+echo "Install keepass cli"
+setup_keepass.sh
+

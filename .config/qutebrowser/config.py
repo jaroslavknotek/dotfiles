@@ -162,11 +162,16 @@ c.window.title_format = '{perc}qute {title_sep}{current_title}'
 c.editor.command = ["vim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 
 c.downloads.location.directory = '/home/jry/downloads'
+
 # Bindings for normal mode
-config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_credentials --auto-submit')
-config.bind('<Ctrl+.>', 'spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_credentials --auto-submit',mode="insert")
-config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_password')
-config.bind('<Ctrl+,>', ':spawn --userscript /home/jry/apps/onepass_cli/qute_1pass.py fill_password', mode='insert')
+kp_script_path = "/home/jry/apps/keepassxc_q_cli/.venv/bin/python /home/jry/apps/keepassxc_q_cli/python/cli.py qute "
+kp_script_args = "--dbs_root /home/jry/keepass-db"
+username_pass_command =  f'spawn --userscript {kp_script_path} username_password {kp_script_args}'
+pass_only_command =  f'spawn --userscript {kp_script_path} password_only {kp_script_args}'
+config.bind('<Ctrl+.>', username_pass_command) 
+config.bind('<Ctrl+.>', username_pass_command ,mode="insert")
+config.bind('<Ctrl+,>', pass_only_command)
+config.bind('<Ctrl+,>', pass_only_command, mode='insert')
 
 config.bind('<j>', 'scroll-px 0 200')
 config.bind('<k>', 'scroll-px 0 -200')
@@ -184,3 +189,6 @@ c.url.searchengines = {
 }
 
 c.auto_save.session = True
+
+config.set('content.notifications.enabled',False,'https://*.reddit.com/*')
+

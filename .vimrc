@@ -162,3 +162,6 @@ function! s:CreateScratch(args)
 endfunction
 
 command -nargs=* Scratch :call s:CreateScratch(<q-args>)
+
+" Prevent vim from clearing clipboard on exit
+autocmd VimLeave * call system("xsel -ib", getreg('+'))

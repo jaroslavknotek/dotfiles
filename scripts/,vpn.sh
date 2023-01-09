@@ -24,7 +24,8 @@ ujv_disconnect()
 utia_connect()
 {
     sudo true
-    ,getpass.sh --stdout |sudo openconnect --protocol=pulse --user=knotek udun.site.cas.cz --authgroup=ZOI --passwd-on-stdin --servercert pin-sha256:Ia0ipnsx0DVM3hnAvhwutIdCqYUVUwKZDXDLqspHD2k=
+    export KEEPASS_DB_PATH="$HOME/keepass-db/acafuel.kdbx"
+    ,getpass_stdout.sh --entry-id "UTIA ZOI VPN udun.site.cas.cz" |sudo openconnect --protocol=pulse --user=knotek udun.site.cas.cz --authgroup=ZOI --passwd-on-stdin --servercert pin-sha256:Ia0ipnsx0DVM3hnAvhwutIdCqYUVUwKZDXDLqspHD2k=
 }
 
 utia_disconnect()

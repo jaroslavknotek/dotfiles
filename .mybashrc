@@ -11,4 +11,4 @@ export EDITOR=vim
 export FZF_CTRL_T_OPTS="--height 50% --preview 'bat --color=always --style=numbers --line-range=:500 {}' --bind 'ctrl-y:execute-silent(echo {} | xsel -ib)'"
 
 export PATH="$PATH:~/apps/dotfiles/scripts"
-
+setxkbmap -layout vok -variant basic
