@@ -12,3 +12,19 @@ export FZF_CTRL_T_OPTS="--height 50% --preview 'bat --color=always --style=numbe
 
 export PATH="$PATH:~/apps/dotfiles/scripts"
 setxkbmap -layout vok -variant basic
+
+alias venvactivate=". .venv/bin/activate"
+
+resolve_venv(){
+    if [[ -z "${VIRTUAL_ENV}" ]]; then
+        echo ""
+    else
+	    DIRNAME=$(dirname $VIRTUAL_ENV)
+	    VENV_NAME=$(basename "$DIRNAME")
+	echo "($VENV_NAME) "
+    fi
+}
+
+# requires posh-git and conda
+export PROMPT_COMMAND='__posh_git_ps1 "$(resolve_venv)$CONDA_PROMPT_MODIFIER\\[\[\e[0;32m\]\u@\h \[\e[0;33m\]\w" " \[\e[1;34m\]\$\[\e[0m\] ";'$PROMPT_COMMAND
+

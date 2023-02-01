@@ -1,1 +1,1 @@
-realpath $1 | xsel -ib
+realpath $1 | tr -d '\n' | xsel -ib
