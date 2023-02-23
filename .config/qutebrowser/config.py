@@ -192,3 +192,8 @@ c.auto_save.session = True
 
 config.set('content.notifications.enabled',False,'https://*.reddit.com/*')
 
+# this will deactivate textbox when leaving insert mode
+# https://github.com/qutebrowser/qutebrowser/issues/2668
+config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
+# actually not whan I wanted
+

@@ -187,3 +187,4 @@ bar {
 bindsym $mod+Shift+s exec flameshot gui
 bindsym $mod+Shift+o exec flameshot gui --raw | tesseract stdin stdout | xsel -ib
 
+exec --no-startup-id i3-battery-popup -n -L 50 -l 20
