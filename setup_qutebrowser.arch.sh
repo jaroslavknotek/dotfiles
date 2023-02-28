@@ -2,12 +2,6 @@
 
 set -e
 
-echo "Setup ssl"
-cd /tmp
-wget http://cz.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
-sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
-rm libssl1.1_1.1.1f-1ubuntu2.16_amd64.deb
-
 echo "Setup repo"
 rm -rf /tmp/qutebrowser-qt6
 git clone https://github.com/qutebrowser/qutebrowser.git /tmp/qutebrowser-qt6
@@ -23,7 +17,7 @@ echo "Install"
 cd /usr/local/src/qutebrowser
 sudo /home/jry/.pyenv/shims/python3.10 scripts/mkvenv.py --venv-dir .venv-qt6 --pyqt-version 6.3
 
-echo '#!/bin/bash' > /tmp/qutebrowser-bin
+echo "#!/bin/bash" > /tmp/qutebrowser-bin
 echo '/usr/local/src/qutebrowser/.venv-qt6/bin/python3.10 -m qutebrowser "$@"' >> /tmp/qutebrowser-bin
 chmod +x /tmp/qutebrowser-bin
 
@@ -38,16 +32,14 @@ echo "add pdf js"
 /usr/local/src/qutebrowser/.venv-qt6/bin/python scripts/dev/update_3rdparty.py
 
 echo "add qutebrowser profile"
-rm -r  /tmp/qutebrowser-profile
 git clone https://github.com/jtyers/qutebrowser-profile.git /tmp/qutebrowser-profile
-
-sudo rm -r /usr/local/src/qutebrowser-profile
 sudo mv /tmp/qutebrowser-profile/ /usr/local/src/qutebrowser-profile
 
 echo '#!/bin/bash' > /tmp/qutebrowser-profile-bin
 echo '/usr/local/src/qutebrowser-profile/qutebrowser-profile' >> /tmp/qutebrowser-profile-bin
 chmod +x /tmp/qutebrowser-profile-bin
 
-sudo rm -r /usr/local/bin/qutebrowser-profile
 sudo mv /tmp/qutebrowser-profile-bin /usr/local/bin/qutebrowser-profile
 
+# contains libsmime3.so
+pacman -Sy nss

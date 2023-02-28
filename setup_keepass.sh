@@ -11,3 +11,5 @@ git config user.name "Jaroslav Knotek"
 
 cd -
 
+~/.pyenv/shims/python -m virtualenv .venv
+
