@@ -1,52 +1,7 @@
-#!/bin/bash
-set -e
-
-sudo dpkg --configure -a
-sudo apt -f install --yes
-sudo apt-get autoremove --yes
-sudo apt update && sudo apt upgrade --yes
-sudo apt install curl
-
-echo "Install git"
-sudo apt-get install --yes git-all
-git version
-
-echo "Install build-essentials"
-sudo apt install --yes build-essential
-
-echo "install keepassxc"
-sudo snap install keepassxc
-sudo apt-get install --yes csvtool
-
-read -p "keepass password: " -s password
-
-echo "setup ssh"
-./setup_ssh.sh $password
-
-echo "setup fzf + deps"
-./setupfzf.sh
-
-echo "Setup pyenv"
-./setuppyenv.sh
-
-echo "setup systemd stuff"
-
-echo "HandleLidSwitch=ignore" |sudo tee -a  /etc/systemd/logind.conf > /dev/null
-echo "IdleAction=lock" |sudo tee -a  /etc/systemd/logind.conf > /dev/null
-echo "IdleActionSec=30min" |sudo tee -a  /etc/systemd/logind.conf > /dev/null
-
 echo "disable grave invoking history"
 mkdir -p ~/.config/dunst
 cp /etc/xdg/dunst/dunstrc ~/.config/dunst/
 sed -i "s/history = ctrl+grave/#     history = ctrl+grave/" ~/.config/dunst/dunstrc 
-
-echo "setting up connection to itself"
-
-rm -rf ~/apps/dotfiles
-git clone git@github.com:jaroslavknotek/dotfiles.git --config core.sshCommand="ssh -i ~/.ssh/id_rsa" ~/apps/dotfiles
-cd ~/apps/dotfiles
-git config user.email knotekjaroslav@email.cz
-git config user.name "Jaroslav Knotek"
 
 
 echo 'Setup keyboard'
@@ -84,7 +39,7 @@ sudo apt install --yes i3
 
 echo "Linking i3 config"
 rm -f ~/.config/i3/config
-ln -s ~/apps/dotfiles/.config/i3/config ~/.config/i3/config
+ln -s ~/apps/dotfiles/home/.config/i3/config ~/.config/i3/config
 
 
 echo "install rofi"
@@ -93,7 +48,7 @@ sudo apt install --yes rofi
 echo "Linking rofi config"
 rm -f ~/.config/rofi/config.rasi
 mkdir -p ~/.config/rofi
-ln -s ~/apps/dotifles/.config/rofi/config.rasi ~/.config/rofi/config.rasi
+ln -s ~/apps/dotifles/home/.config/rofi/config.rasi ~/.config/rofi/config.rasi
 
 
 echo "Install vim + vim-plug"
@@ -103,7 +58,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 echo "Linking vim config"
 rm -f ~/.vimrc
-ln -s ~/apps/dotfiles/.vimrc ~/.vimrc
+ln -s ~/apps/dotfiles/home/.vimrc ~/.vimrc
 
 echo "Install xsel"
 sudo apt install --yes xsel

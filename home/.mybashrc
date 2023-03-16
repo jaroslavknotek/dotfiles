@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias ll='ls --color=auto -alF'
 
 eval "$(zoxide init bash)"
 export EDITOR=vim
@@ -26,5 +27,6 @@ resolve_venv(){
 }
 
 # requires posh-git and conda
-# export PROMPT_COMMAND='__posh_git_ps1 "$(resolve_venv)$CONDA_PROMPT_MODIFIER\\[\[\e[0;32m\]\u@\h \[\e[0;33m\]\w" " \[\e[1;34m\]\$\[\e[0m\] ";'$PROMPT_COMMAND
+source $HOME/apps/posh_git.sh
+export PROMPT_COMMAND='__posh_git_ps1 "$(resolve_venv)$CONDA_PROMPT_MODIFIER\\[\[\e[0;32m\]\u@\h \[\e[0;33m\]\w" " \[\e[1;34m\]\$\[\e[0m\] ";'$PROMPT_COMMAND
 

@@ -1,0 +1,32 @@
+{
+    "audio": "pipewire",
+    "bootloader": "systemd-bootctl",
+    "config_version": "2.5.3",
+    "debug": false,
+    "desktop-environment": "i3",
+    "gfx_driver": "All open-source (default)",
+    "harddrives": [
+        "/dev/nvme0n1"
+    ],
+    "hostname": "T14",
+    "nic": {
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "iso"
+    },
+    "no_pkg_lookups": false,
+    "offline": false,
+    "packages": [
+        "kitty"
+    ],
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/desktop.py"
+    },
+    "script": "guided",
+    "silent": false,
+    "timezone": "Europe/Prague",
+    "version": "2.5.3"
+}

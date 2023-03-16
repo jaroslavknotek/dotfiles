@@ -13,3 +13,4 @@ cd -
 
 ~/.pyenv/shims/python -m virtualenv .venv
 
+$KEEPASS_PATH/.venv/bin/pip install -r $KEEPASS_PATH/requirements.txt
