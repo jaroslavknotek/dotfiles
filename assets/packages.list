@@ -18,5 +18,7 @@ unzip
 evince
 sof-firmware
 openconnect
-x254
+x264
 x265
+pyenv
+feh

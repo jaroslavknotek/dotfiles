@@ -1,4 +1,5 @@
-
+#!/bin/sh
+set -e
 
 # echo "cvrez vpn"
 # git clone https://aur.archlinux.org/openvpn3.git $HOME/apps
@@ -11,15 +12,25 @@
 
 echo "install from list"
 
-pacman -S - < ../assets/packages.list
+sudo pacman --noconfirm -S - < ../assets/packages.list
+
+echo "setup pyenv"
+# assuming it's installev via arch pacman
+pyenv install -s 3.11.2
+pyenv global 3.11.2
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+which pip
+pip install virtualenv
 
 echo "posh git"
-wget -O $HOME/apps/posh_git.sh  https://raw.githubusercontent.com/lyze/posh-git-sh/master/git-prompt.sh
+wget -O $HOME/apps/dotfiles/scripts/posh_git.sh  https://raw.githubusercontent.com/lyze/posh-git-sh/master/git-prompt.sh
 
 echo "keyboard"
 #  this sourcee: https://www.abclinuxu.cz/blog/origami/2006/12/21/162644
 
-sudo cp ~/apps/dotfiles/src/vok /usr/share/X11/xkb/symbols
+sudo cp ~/apps/dotfiles/assets/vok /usr/share/X11/xkb/symbols
 sudo sed -i "s/! layout/! layout\n  vok             vogo's CZECH programming keyboard/" /usr/share/X11/xkb/rules/xorg.lst
 
 
@@ -49,14 +60,14 @@ ln -s ~/apps/dotfiles/home/.vimrc ~/.vimrc
 
 vim +'PlugInstall --sync' +qa
 
-echo "keepass"
-./setup_keepass.sh
-
-
 echo "ssh"
 echo " you have to run this manually "
 echo "sign in to dbcli and get dbs"
 #./setup_ssh.sh
+
+echo "keepass"
+eval ./setup_keepass.sh
+
 
 echo "fzf"
 
@@ -71,29 +82,24 @@ rm -f ~/.config/qutebrowser/config.py
 mkdir -p ~/.config/qutebrowser
 ln -s ~/apps/dotfiles/home/.config/qutebrowser/config.py ~/.config/qutebrowser/config.py 
 
-echo "[Desktop Entry]" > /tmp/qb.desktop
-echo "Type=Application" > /tmp/qb.desktop 
-echo "Name=qutebrowser" > /tmp/qb.desktop 
-echo "Exec=qutebrowser" > /tmp/qb.desktop 
 
-sudo mv /tmp/qb.desktop org.qutebrowser.qutebrowser.desktop
-xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
 
 echo "fs"
 
-mkdir downloads
-mv Downloads/* downloads
-rmdir Downloads
-rmdir Desktop/
-rmdir Documents/
-rmdir Music/
-rmdir Public/
-rmdir Templates/
-rmdir Videos/
+mkdir -p downloads
+rm -rf Downloads
+rm -rf Desktop/
+rm -rf Documents/
+rm -rf Music/
+rm -rf Public/
+rm -rf Templates/
+rm -rf Videos/
 
 # TODO -no-rc param
-# echo ".bashrc & .profile"
+echo ".bashrc & .profile"
 
-# echo "source ~/apps/dotfiles/.mybashrc" >> ~/.bashrc
-# echo "source ~/apps/dotfiles/.myprofile" >> ~/.profile
+if [ -z "${NO_RC}" ]; then
+	echo "source ~/apps/dotfiles/home/.mybashrc" >> ~/.bashrc
+	echo "source ~/apps/dotfiles/home/.myprofile" >> ~/.profile
+fi
 

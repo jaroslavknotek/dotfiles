@@ -27,6 +27,6 @@ resolve_venv(){
 }
 
 # requires posh-git and conda
-source $HOME/apps/posh_git.sh
+source $HOME/apps/dotfiles/scripts/posh_git.sh
 export PROMPT_COMMAND='__posh_git_ps1 "$(resolve_venv)$CONDA_PROMPT_MODIFIER\\[\[\e[0;32m\]\u@\h \[\e[0;33m\]\w" " \[\e[1;34m\]\$\[\e[0m\] ";'$PROMPT_COMMAND
 
