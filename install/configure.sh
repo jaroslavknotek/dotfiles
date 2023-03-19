@@ -45,6 +45,10 @@ echo "i3"
 rm -f ~/.config/i3/config
 ln -s ~/apps/dotfiles/home/.config/i3/config ~/.config/i3/config
 
+rm -rf ~/.config/i3status
+mkdir -p ~/.config/i3status
+ln -s ~/apps/dotfiles/home/.config/i3status/config ~/.config/i3status/config
+
 echo "rofi"
 rm -f ~/.config/rofi/config.rasi
 mkdir -p ~/.config/rofi
