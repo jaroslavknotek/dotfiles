@@ -181,6 +181,13 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+	colors {
+                #background $inactive-bg-color
+                separator #ff9900
+                #                  border             background         text
+                #urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+
+        }
 }
 
 
