@@ -69,6 +69,8 @@ echo " you have to run this manually "
 echo "sign in to dbcli and get dbs"
 #./setup_ssh.sh
 
+ln -s ~/apps/dotfiles/home/.ssh/config ~/.ssh/config
+
 echo "keepass"
 eval ./setup_keepass.sh
 

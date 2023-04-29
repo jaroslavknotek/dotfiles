@@ -111,12 +111,12 @@ let g:mkdp_path_to_chrome ="/usr/local/bin/qutebrowser"
 " ****** Move lines ******
 " alt and meta doesnt work
 " https://stackoverflow.com/questions/6778961/alt-key-shortcuts-not-working-on-gnome-terminal-with-vim
-nnoremap j :m .+1<CR>==
-nnoremap k :m .-2<CR>==
-inoremap j <Esc>:m .+1<CR>==gi
-inoremap k <Esc>:m .-2<CR>==gi
-vnoremap j :m '>+1<CR>gv=gv
-vnoremap k :m '<-2<CR>gv=gv
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " ****** write buffer and delete *******
 command WriteBufferDelete write|bdelete
