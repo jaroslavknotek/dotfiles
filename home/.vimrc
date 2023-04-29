@@ -27,6 +27,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-sensible'
 Plug 'lervag/wiki.vim', {'for':'markdown'}
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 " ****** wiki.vim ******

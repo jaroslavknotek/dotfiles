@@ -54,6 +54,9 @@ rm -f ~/.config/rofi/config.rasi
 mkdir -p ~/.config/rofi
 ln -s ~/apps/dotifles/home/.config/rofi/config.rasi ~/.config/rofi/config.rasi
 
+echo "kitty"
+
+ln -s ~/apps/dotfiles/home/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 echo "vim"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
