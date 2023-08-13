@@ -3,22 +3,28 @@
 set -e
 
 echo "Setup repo"
-rm -rf /tmp/qutebrowser-qt6
-git clone https://github.com/qutebrowser/qutebrowser.git /tmp/qutebrowser-qt6
-cd /tmp/qutebrowser-qt6
-git checkout qt6-v2
+
+QUTE_TMPDIR=/tmp/qutebrowser_install
+QUTE_VENV=.venv
+
+rm -rf "$QUTE_TMPDIR"
+git clone https://github.com/qutebrowser/qutebrowser.git "$QUTE_TMPDIR"
+cd "$QUTE_TMPDIR"
 
 sudo rm -rf /usr/local/src/qutebrowser
 sudo mkdir -p /usr/local/src/qutebrowser
-sudo mv /tmp/qutebrowser-qt6/* /usr/local/src/qutebrowser/
+sudo mv "$QUTE_TMPDIR"/* /usr/local/src/qutebrowser/
 
 echo "Install"
 
 cd /usr/local/src/qutebrowser
-sudo /home/jry/.pyenv/shims/python3.11 scripts/mkvenv.py --venv-dir .venv-qt6 --pyqt-version 6.3
+sudo /home/jry/.pyenv/shims/python3.10 scripts/mkvenv.py --venv-dir "$QUTE_VENV" --pyqt-version 6.3
 
 echo "#!/bin/bash" > /tmp/qutebrowser-bin
-echo '/usr/local/src/qutebrowser/.venv-qt6/bin/python3.11 -m qutebrowser "$@"' >> /tmp/qutebrowser-bin
+
+venv_path="/usr/local/src/qutebrowser/$QUTE_VENV"
+cmd_res='bin/python3.10 -m qutebrowser "$@"'
+echo "${venv_path}/${cmd_res}" >> /tmp/qutebrowser-bin
 chmod +x /tmp/qutebrowser-bin
 
 sudo mv /tmp/qutebrowser-bin /usr/local/bin/qutebrowser
@@ -29,7 +35,7 @@ mkdir -p ~/.config/qutebrowser
 ln -s ~/apps/dotfiles/home/.config/qutebrowser/config.py ~/.config/qutebrowser/config.py
 
 echo "add pdf js"
-/usr/local/src/qutebrowser/.venv-qt6/bin/python scripts/dev/update_3rdparty.py
+$venv_path/bin/python scripts/dev/update_3rdparty.py
 
 echo "add qutebrowser profile"
 rm -rf /tmp/qutebrowser-profile

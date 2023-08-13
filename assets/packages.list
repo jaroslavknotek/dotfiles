@@ -22,3 +22,5 @@ x264
 x265
 pyenv
 feh
+pulseaudio
+pulseaudio-alsa

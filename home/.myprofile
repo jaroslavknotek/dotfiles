@@ -6,4 +6,4 @@ eval "$(pyenv init -)"
 
 setxkbmap -layout vok -variant basic
 
-export PATH="$PATH:/home/jry/apps/dotfiles/scripts"
+export PATH="$PATH:$HOME/apps/dotfiles/scripts:/$HOME/apps/dotfiles/assets"
