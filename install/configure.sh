@@ -91,7 +91,9 @@ rm -f ~/.config/qutebrowser/config.py
 mkdir -p ~/.config/qutebrowser
 ln -s ~/apps/dotfiles/home/.config/qutebrowser/config.py ~/.config/qutebrowser/config.py 
 
-
+echo "ranger"
+mkdir -p ~/.config/ranger
+ln -s ~/apps/dotfiles/home/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 
 echo "fs"
 
@@ -111,4 +113,5 @@ if [ -z "${NO_RC}" ]; then
 	echo "source ~/apps/dotfiles/home/.mybashrc" >> ~/.bashrc
 	echo "source ~/apps/dotfiles/home/.myprofile" >> ~/.profile
 fi
+
 
