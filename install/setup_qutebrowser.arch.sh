@@ -29,10 +29,6 @@ chmod +x /tmp/qutebrowser-bin
 
 sudo mv /tmp/qutebrowser-bin /usr/local/bin/qutebrowser
 
-echo 'linking config'
-rm -f ~/.config/qutebrowser/config.py
-mkdir -p ~/.config/qutebrowser
-ln -s ~/apps/dotfiles/home/.config/qutebrowser/config.py ~/.config/qutebrowser/config.py
 
 echo "add pdf js"
 $venv_path/bin/python scripts/dev/update_3rdparty.py
