@@ -13,12 +13,12 @@ VPN_NAME=$2
 
 ujv_connect()
 {
-    openvpn3 session-start --config ~/.openvpn/cvr-profile.ovpn
+    sudo openvpn --config ~/.openvpn/cvr-profile.ovpn --verb 4
 }
 
 ujv_disconnect()
 {
-    openvpn3 session-manage --config ~/.openvpn/cvr-profile.ovpn  --disconnect
+    echo "This is not implemented. The session is cancelled via ctrl-c"
 }
 
 utia_connect()
