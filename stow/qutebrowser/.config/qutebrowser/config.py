@@ -196,4 +196,4 @@ config.set('content.notifications.enabled',False,'https://*.reddit.com/*')
 # https://github.com/qutebrowser/qutebrowser/issues/2668
 config.bind('<Escape>', 'mode-leave ;; jseval -q document.activeElement.blur()', mode='insert')
 # actually not whan I wanted
-
+config.set('content.autoplay', False)

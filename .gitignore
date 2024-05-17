@@ -1,3 +1,6 @@
 *.swp
 **/.ssh/id_*
 **/.ssh/known_hosts
+
+stow/flameshot/
+stow/qutebrowser/.config/qutebrowser/qsettings/*

@@ -100,3 +100,20 @@ au BufNewFile,BufRead *.py
 
 " My mappings
 nnoremap <leader>ag :Ag<CR>
+
+
+function! s:CreateScratch(args)
+  let timestamp = trim(system("date +%Y%m%d%H%M"))
+  let filename = 'scratch.'.timestamp
+  if len(a:args) !=0
+    let filename = filename.'.'.a:args
+  endif
+  let filename = filename.".md"
+  execute "e ".filename
+"  echo "Created new file ".filename
+endfunction
+
+command -nargs=* Scratch :call s:CreateScratch(<q-args>)
+
+" Prevent vim from clearing clipboard on exit
+autocmd VimLeave * call system("xsel -ib", getreg('+'))

@@ -11,7 +11,7 @@ NOTES_PATH="/home/jry/documents/notes_vault/notes/"
 
 if [ "$#" -eq 0 ]; then
 	cd "$NOTES_PATH"
-	vim scratch.*.md
+        nvim scratch.*.md
 elif [ "$#" -eq 1 ] && [ "$1" == "sync" ] ; then
 	cd "$NOTES_PATH"
         git add .

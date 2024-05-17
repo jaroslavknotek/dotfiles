@@ -42,7 +42,7 @@ done < ../assets/aur_repos
 
 
 echo "STOW config"
-stow -S bash autorandr nvim i3 kitty qutebrowser rofi ranger ssh -d ~/apps/dotfiles/stow/ -v -t ~/
+stow -S flameshot bash autorandr nvim i3 kitty qutebrowser rofi ranger ssh -d ~/apps/dotfiles/stow/ -v -t ~/
 
 echo "setup pyenv"
 # assuming it's installev via arch pacman
