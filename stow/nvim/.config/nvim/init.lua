@@ -68,3 +68,6 @@ require('lspconfig').ruff_lsp.setup {
     }
   }
 }
+
+-- Doge
+vim.keymap.set('n', '<Leader>d', '<Plug>(doge-generate)')

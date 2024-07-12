@@ -35,6 +35,7 @@ Plug 'tpope/vim-sensible'
 " Plug 'lervag/wiki.vim', {'for':'markdown'}
 call plug#end()
 
+nmap <silent> <Leader>d <Plug>(doge-generate)
 " ****** fzf ******
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
