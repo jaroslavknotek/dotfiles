@@ -4,4 +4,5 @@
 
 stow/flameshot/
 stow/qutebrowser/.config/qutebrowser/qsettings/*
+stow/qutebrowser/.config/qutebrowser/bookmarks/*
 stow/nvim/.config/nvim/pack/github
