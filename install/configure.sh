@@ -59,6 +59,7 @@ wget -O $HOME/apps/dotfiles/scripts/posh_git.sh  https://raw.githubusercontent.c
 
 echo "keyboard"
 #  this sourcee: https://www.abclinuxu.cz/blog/origami/2006/12/21/162644
+# the source was moved to https://gitlab.com/vojta_vogo/vok/-/tree/master/xorg?ref_type=heads
 
 sudo cp ~/apps/dotfiles/assets/vok /usr/share/X11/xkb/symbols
 sudo sed -i "s/! layout/! layout\n  vok             vogo's CZECH programming keyboard/" /usr/share/X11/xkb/rules/xorg.lst
