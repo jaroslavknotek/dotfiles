@@ -16,30 +16,12 @@ sudo pacman --noconfirm -S - < ../assets/packages.list
 
 echo "install paru"
 
-git clone https://aur.archlinux.org/paru.git ~/paru
-pushd ~/paru
-makepkg -is
-popd
+#git clone https://aur.archlinux.org/paru.git ~/paru
+#pushd ~/paru
+#makepkg -is
+#popd
 
 echo "install from aur"
-
-mkdir ~/apps
-
-while IFS= read -r line; do
-    echo "Text read from file: $line"
-    
-    pushd tmp
-    rm -rf tmp-repo
-    mkdir tmp-repo
-    pushd tmp-repo
-    git clone $line
-    mv $(ls -1) ~/apps
-    popd
-    rmdir tmp-repo
-    popd
-
-done < ../assets/aur_repos
-
 
 echo "STOW config"
 stow -S flameshot bash autorandr nvim i3 kitty qutebrowser rofi ranger ssh -d ~/apps/dotfiles/stow/ -v -t ~/

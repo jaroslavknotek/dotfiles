@@ -159,7 +159,15 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 # Type: FormatString
 c.window.title_format = '{perc}qute {title_sep}{current_title}'
 
-c.editor.command = ["vim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
+#c.editor.command = ["vim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
+c.editor.command = [
+    "kitty",
+    "--class",
+    "qutebrowser-editor",
+    "-e",
+    "nvim",
+    "{file}",
+]
 
 c.downloads.location.directory = '/home/jry/downloads'
 

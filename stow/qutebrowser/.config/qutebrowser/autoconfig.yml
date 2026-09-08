@@ -6,11 +6,23 @@
 
 config_version: 2
 settings:
-  content.media.audio_capture:
-    https://teams.microsoft.com: true
-  content.media.audio_video_capture:
-    https://teams.microsoft.com: true
-  content.media.video_capture:
-    https://teams.microsoft.com: true
-  content.register_protocol_handler:
-    https://mail.utia.cas.cz?_q=%25s: false
+  bindings.commands:
+    global:
+      insert:
+        <Ctrl+,>: spawn --userscript /home/jry/apps/keepassxc_q_cli/.venv/bin/python
+          /home/jry/apps/keepassxc_q_cli/python/cli.py qute  password_only --dbs_root
+          /home/jry/keepass-db
+        <Ctrl+.>: spawn --userscript /home/jry/apps/keepassxc_q_cli/.venv/bin/python
+          /home/jry/apps/keepassxc_q_cli/python/cli.py qute  username_password --dbs_root
+          /home/jry/keepass-db
+        <Escape>: mode-leave ;; jseval -q document.activeElement.blur()
+      normal:
+        <Ctrl+,>: spawn --userscript /home/jry/apps/keepassxc_q_cli/.venv/bin/python
+          /home/jry/apps/keepassxc_q_cli/python/cli.py qute  password_only --dbs_root
+          /home/jry/keepass-db
+        <Ctrl+.>: spawn --userscript /home/jry/apps/keepassxc_q_cli/.venv/bin/python
+          /home/jry/apps/keepassxc_q_cli/python/cli.py qute  username_password --dbs_root
+          /home/jry/keepass-db
+        j: scroll-px 0 200
+        k: scroll-px 0 -200
+        m: null

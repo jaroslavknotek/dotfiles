@@ -1,0 +1,5 @@
+[[Snippets]]
+  Description = "Make sure that ssh-ing to a device won't cause typing/color problems"
+  Output = ""
+  Tag = []
+  command = "export TERM=xterm-256color"

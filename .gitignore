@@ -6,3 +6,9 @@ stow/flameshot/
 stow/qutebrowser/.config/qutebrowser/qsettings/*
 stow/qutebrowser/.config/qutebrowser/bookmarks/*
 stow/nvim/.config/nvim/pack/github
+stow/yazi/.config/yazi/plugins
+stow/autorandr/.config/autorandr/*
+!/stow/autorandr/.config/autorandr/default/
+
+
+lazy-lock.json

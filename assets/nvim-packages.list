@@ -1,0 +1,6 @@
+pyright 
+ruff 
+rust-analyzer 
+mypy
+ripgrep
+treesitree-sitter-cli

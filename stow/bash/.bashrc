@@ -41,4 +41,20 @@ export PROMPT_COMMAND='__posh_git_ps1 "$(resolve_venv)$CONDA_PROMPT_MODIFIER\\[\
 
 shopt -s globstar
 
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+# [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+# uv
+export PATH="/home/jry/.local/bin:$PATH"
+
+# pet - snippet manager
+
+function pet-select() {
+  BUFFER=$(pet search --query "$READLINE_LINE")
+  READLINE_LINE=$BUFFER
+  READLINE_POINT=${#BUFFER}
+}
+bind -x '"\C-x\C-r": pet-select'
+
+# increase hist size
+HISTSIZE=2000
+HISTFILESIZE=2000

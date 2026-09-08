@@ -9,7 +9,15 @@ fi
 COMMAND=$1
 VPN_NAME=$2
 
-
+kobka_connect()
+{
+	sudo swanctl --initiate --child sa
+}
+kobka_disconnect()
+{
+	# it's different intentionally
+	sudo swanctl --terminate --ike vpn_kobka_users
+}
 
 ujv_connect()
 {
@@ -25,7 +33,9 @@ utia_connect()
 {
     sudo true
     export KEEPASS_DB_PATH="$HOME/keepass-db/acafuel.kdbx"
-    ,getpass_stdout.sh --entry-id "UTIA ZOI VPN udun.site.cas.cz" |sudo openconnect --protocol=pulse --user=knotek udun.site.cas.cz --authgroup=ZOI --passwd-on-stdin --servercert pin-sha256:Ia0ipnsx0DVM3hnAvhwutIdCqYUVUwKZDXDLqspHD2k=
+    ,getpass_stdout.sh --entry-id "UTIA ZOI VPN udun.site.cas.cz" |sudo openconnect --protocol=pulse --user=knotek udun.site.cas.cz --authgroup=ZOI --passwd-on-stdin --servercert pin-sha256:6yggHwkdghiyUuiy3J+6gnwDJqsEgQH1RdyGDNEsJjk=
+
+    #pin-sha256:Ia0ipnsx0DVM3hnAvhwutIdCqYUVUwKZDXDLqspHD2k=
 }
 
 utia_disconnect()
@@ -39,6 +49,8 @@ case $COMMAND in
             ujv_connect
         elif  [ $VPN_NAME == 'utia' ]; then
             utia_connect
+	elif  [ $VPN_NAME == 'kobka' ]; then
+	    kobka_connect
         else 
             echo "Unknown VPN name: $VPN_NAME"
         fi
@@ -48,6 +60,8 @@ case $COMMAND in
             ujv_disconnect
         elif  [ $VPN_NAME == 'utia' ]; then
             utia_disconnect
+	elif  [ $VPN_NAME == 'kobka' ]; then
+	    kobka_disconnect
         else 
             echo "Unknown VPN name: $VPN_NAME"
         fi 
